@@ -7,7 +7,9 @@ html(lang="en")
         title #{docTitle}
         block styles
     body
+        <div class="backdrop"></div>
         header.main-header
+            <button id="side-menu-toggle">Menu</button>
             nav.main-header__nav
                 ul.main-header__item-list   
                     li.main-header__item
@@ -17,7 +19,34 @@ html(lang="en")
                     li.main-header__item
                         a(href="/cart", class=(path === 'cart' ? 'active' : '')) Cart
                     li.main-header__item
+                        a(href="/orders", class=(path === 'orders' ? 'active' : '')) Orders
+                    li.main-header__item
                         a(href="/admin/add-product", class=(path === 'addProduct' ? 'active' : '')) Add product
                     li.main-header__item
-                        a(href="/admin/products", class=(path === 'adminProd' ? 'active' : '')) Admin products
+                        a(href="/admin/products", class=(path === 'adminProds' ? 'active' : '')) Admin products
+            <nav class="mobile-nav">
+                <ul class="mobile-nav__item-list">
+                    <li class="mobile-nav__item">
+                         a(href="/", class=(path === 'shop' ? 'active' : '')) Shop
+                    </li>
+                    <li class="mobile-nav__item">
+                        a(href="/products", class=(path === 'products' ? 'active' : '')) Products
+                    </li>
+                    <li class="mobile-nav__item">
+                        a(href="/cart", class=(path === 'cart' ? 'active' : '')) Cart
+                    </li>
+                    <li class="mobile-nav__item">
+                        a(href="/orders", class=(path === 'orders' ? 'active' : '')) Orders
+                    </li>
+                    <li class="mobile-nav__item">
+                        a(href="/admin/add-product", class=(path === 'addProduct' ? 'active' : '')) Add product
+                    </li>
+                    <li class="mobile-nav__item">
+                        a(href="/admin/products", class=(path === 'adminProds' ? 'active' : '')) Admin products
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         block content
+
+        script(src="/js/main.js")
