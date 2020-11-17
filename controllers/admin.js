@@ -14,8 +14,13 @@ exports.postAddProduct = (req, res, next) => {
     const description = req.body.description;
     const product = new Product(null, title, imageUrl, price, description); 
     // null needs for product model in save method to create new product
-    product.save();
-    res.redirect('/');
+    product.save()
+    .then(() => {
+        res.redirect('/')
+    })
+    .catch(err => {
+        console.log(err);
+    })
 };
 
 exports.getEditProd = (req, res, next) => {

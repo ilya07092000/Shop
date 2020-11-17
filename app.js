@@ -7,6 +7,8 @@ const adminRoutes = require('./routes/admin.js');
 const shopRoutes = require('./routes/shop.js');
 const err404 = require('./controllers/404.js')
 
+const db = require('./util/database.js');
+
 const app = express();
 
 app.set('view engine', 'pug');
