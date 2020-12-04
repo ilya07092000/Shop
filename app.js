@@ -7,7 +7,7 @@ const adminRoutes = require('./routes/admin.js');
 const shopRoutes = require('./routes/shop.js');
 const err404 = require('./controllers/404.js')
 
-const db = require('./util/database.js');
+const sequelize = require('./util/database.js');
 
 const app = express();
 
@@ -24,4 +24,10 @@ app.use(err404.err404);
 
 const server = http.createServer(app);
 
-server.listen(3000);
+sequelize
+    .sync()
+    .then(result => {
+        // console.log(result);
+        server.listen(3000);
+    })
+    .catch(err => console.log(err));
